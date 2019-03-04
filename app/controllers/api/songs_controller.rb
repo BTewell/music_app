@@ -30,4 +30,11 @@ class Api::SongsController < ApplicationController
     @song.save
     render 'show.json.jbuilder'
   end
+
+  def destroy
+    the_id = params[:id]
+    @song = Song.find_by(id: the_id)
+    @song.destroy
+    render 'destroy.json.jbuilder'
+  end
 end
